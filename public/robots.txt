@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.grow-a-garden-script.net/sitemap.xml 
