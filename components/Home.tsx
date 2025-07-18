@@ -149,14 +149,14 @@ export default function Home({ defaultGame, onGameSelect }: HomeProps) {
                   )}
                   {/* How to Play Section */}
                   {selectedGame.howToPlayIntro?.content && selectedGame.howToPlaySteps && selectedGame.howToPlaySteps.length > 0 && (
-                    <div id="how-to-play" className="mt-8">
+                    <div id="what-are-mutations" className="mt-8">
                       <h2 className="text-2xl font-bold mb-4 text-white">
                         {selectedGame.howToPlayIntro.title || "How to Play"}
                       </h2>
                       <GameplayGuide
                         intro={selectedGame.howToPlayIntro}
                         steps={selectedGame.howToPlaySteps}
-                        videoUrls={selectedGame.videoUrls}
+                        videoUrls={[]}
                       />
                     </div>
                   )}
@@ -175,6 +175,10 @@ export default function Home({ defaultGame, onGameSelect }: HomeProps) {
                   {/* Mutations Table Section */}
                   {selectedGame.mutations && (
                     <div id="all-mutations" className="mt-8">
+                      {/* 为每个 mutation 渲染锚点（提前到 MutationsTable 之前，避免后续内容影响滚动） */}
+                      {selectedGame.mutations.table?.rows?.map((row, i) => (
+                        <div key={row[0]} id={`mutation-${row[0].toLowerCase()}`} style={{height: 0, margin: 0, padding: 0}} />
+                      ))}
                       <MutationsTable mutations={selectedGame.mutations} />
                     </div>
                   )}
@@ -205,6 +209,39 @@ export default function Home({ defaultGame, onGameSelect }: HomeProps) {
                         description={selectedGame.codes.description}
                         items={selectedGame.codes.items}
                       />
+                    </div>
+                  )}
+                  {/* Tutorial Videos 区域，挪到 FAQ 上方 */}
+                  {selectedGame.videoUrls && selectedGame.videoUrls.length > 0 && (
+                    <div id="tutorial-videos" className="mt-12">
+                      <h3 className="text-xl font-semibold mb-6 text-center">Tutorial Videos</h3>
+                      {selectedGame.videoUrls.length === 1 ? (
+                        <div className="w-full aspect-video mx-auto flex items-center justify-center">
+                          <iframe
+                            src={`${selectedGame.videoUrls[0]}?autoplay=0&rel=0&showinfo=0&modestbranding=1`}
+                            className="w-full h-full rounded-lg"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            loading="lazy"
+                            title="Game Tutorial Video"
+                          />
+                        </div>
+                      ) : (
+                        <div className="grid gap-6 md:grid-cols-2">
+                          {selectedGame.videoUrls.map((url, index) => (
+                            <div key={index} className="aspect-video">
+                              <iframe
+                                src={`${url}?autoplay=0&rel=0&showinfo=0&modestbranding=1`}
+                                className="w-full h-full rounded-lg"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                loading="lazy"
+                                title="Game Tutorial Video"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   )}
                   {/* FAQ Section */}

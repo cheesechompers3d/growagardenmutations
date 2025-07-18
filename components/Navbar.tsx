@@ -40,7 +40,7 @@ export default function Navbar({
     { name: "What are mutations", id: "what-are-mutations" },
     { name: "What are Grow a Garden pet mutations?", id: "why-play" },
     { name: "Here are the pet mutations", id: "pet-mutations" },
-    { name: "Mutations", id: "mutations" },
+    { name: "Mutations", id: "all-mutations" },
     { name: "FAQ", id: "faq" }
   ]
 
