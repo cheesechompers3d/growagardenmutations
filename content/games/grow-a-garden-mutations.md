@@ -52,7 +52,7 @@ tableOfContents:
   items:
     - text: "What is Grow a Garden Mutations?"
       id: "what-is-grow-a-garden-mutations"
-    - text: "What are mutations"
+    - text: "What are mutations in Grow a Garden?"
       id: "what-are-mutations"
     - text: "All Grow a Garden Mutations"
       id: "all-mutations"
@@ -151,11 +151,11 @@ tableOfContents:
           id: "mutation-friendbound"
         - text: "Infected"
           id: "mutation-infected"
-    - text: "Here are the pet mutations"
+    - text: "Here are the pet mutations available in Grow a Garden"
       id: "pet-mutations"
-    - text: "Mutations"
-      id: "mutations"
-    - text: "FAQ"
+    - text: "All Grow a Garden Mutations Table"
+      id: "all-mutations"
+    - text: "Frequently Asked Questions About Grow a Garden Mutations"
       id: "faq"
 
 info:

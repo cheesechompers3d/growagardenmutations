@@ -195,17 +195,18 @@ export default function GameIframe({ game, onGameSelect, isDarkMode, isMobile }:
                     )}>
                       <button
                         onClick={() => {
-                          const el = document.getElementById('scripts');
+                          const el = document.getElementById('all-mutations');
                           if (el) {
                             el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                           }
                         }}
                         className={cn(
-                          "border-2 border-green-400 text-white bg-gradient-to-r from-green-600/20 to-teal-600/20 hover:from-green-500 hover:to-teal-500 hover:text-white rounded-2xl font-bold transition-all duration-300 shadow-lg hover:shadow-green-500/50 backdrop-blur-sm",
-                          isMobile ? "px-3 py-1 text-xs" : "px-8 py-4 text-lg"
+                          'bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 text-white font-bold py-2 px-6 rounded-xl shadow-lg hover:scale-105 hover:from-green-500 hover:to-purple-600 transition-all duration-300',
+                          isMobile ? 'text-xs py-1 px-2' : 'text-lg'
                         )}
+                        title="Go to Mutations"
                       >
-                        Go to Script
+                        Go to Mutations
                       </button>
                       <button
                         onClick={handlePlayGame}

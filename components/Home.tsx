@@ -174,7 +174,7 @@ export default function Home({ defaultGame, onGameSelect }: HomeProps) {
                   )}
                   {/* Mutations Table Section */}
                   {selectedGame.mutations && (
-                    <div id="mutations" className="mt-8">
+                    <div id="all-mutations" className="mt-8">
                       <MutationsTable mutations={selectedGame.mutations} />
                     </div>
                   )}
